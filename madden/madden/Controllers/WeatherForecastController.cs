@@ -2,31 +2,58 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace madden.Controllers;
 
+
+/*
+ * This file contains actions that handle requests to endpoints
+ * 
+ * routing systen sekects endpoint for HTTP Request
+ * A route --> a rule used to decide how a request is handled 
+ * 
+ * for MVC: / /Home /Home/Index --> Index()
+ * 
+ * 
+ */
 [ApiController]
 [Route("[controller]")]
-public class WeatherForecastController : ControllerBase
+
+/* Controller --> has Views
+   ControllerBase --> no views */
+public class WeatherForecastController : Controller/*Base*/
 {
-    private static readonly string[] Summaries = new[]
-    {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
+    
+    //public ViewResult Gets()
+    //{
+      //  int viewModel = 0;
 
-    private readonly ILogger<WeatherForecastController> _logger;
+        /* Create a View Model --> data provided to the view */
+        /* calls View method of the Controller Class */
+        //return View("view", viewModel);
 
-    public WeatherForecastController(ILogger<WeatherForecastController> logger)
-    {
-        _logger = logger;
-    }
+        // return View() checks for  func name
+    //}
 
+
+    /*
     [HttpGet(Name = "GetWeatherForecast")]
-    public IEnumerable<WeatherForecast> Get()
+    public string Get()
     {
-        return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-        {
-            Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            TemperatureC = Random.Shared.Next(-20, 55),
-            Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-        })
-        .ToArray();
+        return "Hi";
     }
+    */
+
+    /* ViewResult tells ASP.NET to render a view */
+    // It is a type of Action result object
+    [HttpGet(Name = "GetWeatherForecast")]
+    // IActionResult
+    public ViewResult Get()
+    {
+        int viewModel = 0;
+
+        /* Create a View Model --> data provided to the view */
+        /* calls View method of the Controller Class */
+        return View("MyView", viewModel);
+    }
+
+
 }
+ 
