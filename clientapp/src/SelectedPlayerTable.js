@@ -10,7 +10,7 @@ export default class SelectedPlayerTable extends Component {
     render() {
         console.log("SelectedPlayerTable rendered. " + this.props.player.name);
         return (
-            <table>
+            <table id="Good">
                 <thead>
                     <tr>
                         <th>Name</th>
