@@ -30,6 +30,13 @@ header {
 
 }
 
+.currentTeam {
+    width: 50%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: left;
+}
+
 header h1 {
  
   color: white;
