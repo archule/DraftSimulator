@@ -1,0 +1,16 @@
+header {
+    /* Creates the main axis (horizontal) & cross axis (vertical) */
+    display: flex;
+    /* Keeps data aligned to main axis */
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    height: 60px;
+    width: 100%;
+}
+
+header h1 {
+    color: white;
+    margin: 0;
+}

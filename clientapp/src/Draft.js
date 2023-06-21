@@ -43,7 +43,7 @@ export default class Draft extends Component {
         console.log("Draft rendered. ");
         return (
             <React.Fragment>
-                <PlayerTable callBack={this.updatePlayer} />
+                <PlayerTable className="PlayerTable" callBack={this.updatePlayer} />
                 <SelectedPlayerTable player={this.state.player} />
             </React.Fragment>
         )

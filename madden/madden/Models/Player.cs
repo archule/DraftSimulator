@@ -14,4 +14,11 @@ public class Player
      */
     public string? Name { get; set; }
     public int? Age { get; set; }
+    public string? College { get; set; }
+    public int? Height { get; set; }
+    public int? Weight { get; set; }
+    public string? Position { get; set; }
+    public string? Rating { get; set; }
+    public SpecialTraits? traits { get; set; }
+
 }

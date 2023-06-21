@@ -1,3 +1,4 @@
+/*
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -13,35 +14,41 @@ code {
 }
 .App {
   height: 100vh;
-}
-
-header {
-  
-  /* Creates the main axis (horizontal) & cross axis (vertical) */
   display: flex;
-
-  /* Keeps data aligned to main axis */
+  
   flex-direction: row;
+  flex-wrap: wrap;
 
-  align-items: center;
-  justify-content: center;
-  background-color: black;
-  height: 60px;
-
+  align-content: flex-start;
 }
 
-.currentTeam {
-    width: 50%;
-    display: flex;
-    align-items: flex-start;
-    justify-content: left;
+    */
+
+
+
+
+.ticker {
+    margin: 0px;
+    padding: 0px;
+    width: 80%;
 }
 
-header h1 {
- 
-  color: white;
-  margin: 0;
+.playerTable {
+    width: 70%;
 }
+
+
+.informational {
+    height: 500px;
+    border-style: solid;
+    border-color: greenyellow;
+    width: 200px;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+
 
 
 
@@ -68,4 +75,63 @@ table {
     table tr:hover {
         background-color: #f5f5f5;
     }
+.teamsContainer {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+}
+
+.teamsContainer > :first-child {
+    border-color: green;
+}
+    .teamsContainer > :nth-child(2) {
+        border-left-color: green;
+    }
+
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    height: 60px;
+    background-color: lightgray;
+    text-align: center;
+    line-height: 60px;
+}
+/*
+.container {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 60px);
+}
+    */
+body {
+    margin: 0;
+    padding: 0;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    height: 60px;
+    background-color: lightgray;
+    text-align: center;
+    line-height: 60px;
+}
+/*
+.container {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 60px);
+}
+    */
 

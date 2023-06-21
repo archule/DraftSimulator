@@ -1,6 +1,16 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\clientapp",
+    "\\clientapp\\src",
+    "\\clientapp\\src\\css",
+    "\\clientapp\\src\\data",
+    "\\madden",
+    "\\madden\\madden",
+    "\\madden\\madden\\Controllers",
+    "\\madden\\madden\\Hubs",
+    "\\madden\\madden\\Models"
   ],
+  "SelectedNode": "\\clientapp\\src\\CurrentTeam.js",
   "PreviewInSolutionExplorer": false
 }
