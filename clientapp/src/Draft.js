@@ -7,6 +7,7 @@ import SelectedPlayerTable from './SelectedPlayerTable.js';
 
 
 
+
 export default class Draft extends Component {
 
     constructor(props) {
@@ -43,8 +44,11 @@ export default class Draft extends Component {
         console.log("Draft rendered. ");
         return (
             <React.Fragment>
-                <PlayerTable className="PlayerTable" callBack={this.updatePlayer} />
-                <SelectedPlayerTable player={this.state.player} />
+                <section className="table-wrapper">
+                    <PlayerTable className="PlayerTable" callBack={this.updatePlayer} />
+                </section>
+                {//<SelectedPlayerTable player={this.state.player} />
+                }
             </React.Fragment>
         )
     }

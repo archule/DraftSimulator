@@ -1,3 +1,6 @@
+namespace madden.Models;
+
+
 public class Team
 {
     /*
@@ -5,4 +8,5 @@ public class Team
      * ? means nullable
      */
     public string? Name { get; set; }
+    public List<int>? teamPicks { get; set;}
 }

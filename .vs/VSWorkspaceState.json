@@ -1,16 +1,17 @@
 {
   "ExpandedNodes": [
     "",
-    "\\clientapp",
-    "\\clientapp\\src",
-    "\\clientapp\\src\\css",
-    "\\clientapp\\src\\data",
     "\\madden",
     "\\madden\\madden",
     "\\madden\\madden\\Controllers",
+    "\\madden\\madden\\Data",
     "\\madden\\madden\\Hubs",
-    "\\madden\\madden\\Models"
+    "\\madden\\madden\\Models",
+    "\\madden\\madden\\Services",
+    "\\madden\\madden\\wwwroot",
+    "\\madden\\madden\\wwwroot\\Data",
+    "\\Scripts"
   ],
-  "SelectedNode": "\\clientapp\\src\\CurrentTeam.js",
+  "SelectedNode": "\\madden\\madden\\Controllers\\RoomsController.cs",
   "PreviewInSolutionExplorer": false
 }

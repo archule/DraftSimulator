@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using Madden.Models.Room;
+using madden.Models;
 namespace madden.Controllers;
 
 
@@ -15,7 +15,6 @@ namespace madden.Controllers;
  */
 [ApiController]
 [Route("[controller]")]
-
 /* Controller --> has Views
    ControllerBase --> no views */
 public class RoomsController : Controller/*Base*/
@@ -23,42 +22,48 @@ public class RoomsController : Controller/*Base*/
 
     [HttpGet]
     // IActionResult
-    public Room Get()
+    public string Get()
     {
-        Room room = new Room("Get Request");
-        return room;
+        Console.WriteLine("HEY");
+        return "";
+        //Room room = new Room("Get Request");
+        //return room;
     }
 
     [HttpPost]
     // IActionResult
-    public Room GetPost()
+    public string GetPost()
     {
-        Room room = new Room("post request");
-        return room;
+        return "";
+        //Room room = new Room("post request");
+        //return room;
     }
  
     [HttpPut]
     // IActionResult
-    public Room GetPut()
+    public string GetPut()
     {
-        Room room = new Room("put request");
-        return room;
+        return "";
+        //Room room = new Room("put request");
+        //return room;
     }
 
     [HttpDelete]
     // IActionResult
-    public Room GetDelete()
+    public string GetDelete()
     {
-        Room room = new Room("delete request");
-        return room;
+        return "";
+        //Room room = new Room("delete request");
+        //return room;
     }
 
     [HttpPatch]
     // IActionResult
-    public Room GetPatch()
+    public string GetPatch()
     {
-        Room room = new Room("patch request");
-        return room;
+        return "";
+        //Room room = new Room("patch request");
+        //return room;
     }
 
 

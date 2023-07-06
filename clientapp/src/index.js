@@ -4,13 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import CurrentTeam from './CurrentTeam.js'
+import Draft from './Draft.js'
+import Clock from './Clock.js'
+import Header from './Header.js';
+import Ticker from './Ticker';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
         <div>
 
-            <div class="header">Header</div>
+            <Header />
+
             <img src="http://localhost:5000/Images/3.jpg" alt="player" />
             <section className="teamsContainer">
                
@@ -34,24 +39,23 @@ root.render(
                 <CurrentTeam />
                 <CurrentTeam />
             </section>
-            <div class="container">
-                <div class="row1">
-                    <div class="box"></div>
-                    <div class="box"></div>
-                    <div class="box"></div>
-                    <div class="box"></div>
-                    <div class="box"></div>
-                    <div class="box"></div>
-                    <div class="box"></div>
+            <Ticker messageTypes={[
+            {
+                type: 'Type 1',
+            messages: ['Message 1', 'Message 2', 'Message 3']
+    },
+            {
+                type: 'Type 2',
+            messages: ['Message A', 'Message B', 'Message C']
+    }
+    // Add more message types and messages as needed
+]} />
+            <div className="tableContainer">
+                <div className="good">
+                    <Clock seconds={90} />
                 </div>
-                <div class="row2">
-                    <div class="box thin"></div>
-                    <div class="box thick"></div>
-                </div>
-                <div class="row3">
-                    <div class="box"></div>
-                    <div class="box"></div>
-                </div>
+                <Draft />
+      
             </div>
         </div>
 

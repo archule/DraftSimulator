@@ -3,6 +3,9 @@ import './Ticker.css';
 import TickerMessage from './TickerMessage.js';
 import TickerMessageType from './TickerMessageType';
 
+
+
+
 const Ticker = ({ messageTypes }) => {
     const [currentMessageTypeIndex, setCurrentMessageTypeIndex] = useState(0);
     const [currentMessageIndex, setCurrentMessageIndex] = useState(0);

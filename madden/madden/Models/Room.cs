@@ -1,5 +1,5 @@
 using System.Diagnostics;
-namespace Madden.Models.Room;
+namespace madden.Models;
 
 public class Room
 {
@@ -12,7 +12,7 @@ public class Room
     public string Code { get; set; }
     public int NumberOfPicks { get; set; }
     public List<Team> Teams { get; set; }
-    public ApplicationUser Creator { get; set; }
-    public List<ApplicationUser> Players { get; set; }
-    public Dictionary<Team, ApplicationUser> Mapping { get; set; }
+    //public ApplicationUser Creator { get; set; }
+    //public List<ApplicationUser> Players { get; set; }
+    //public Dictionary<Team, ApplicationUser> Mapping { get; set; }
 }
