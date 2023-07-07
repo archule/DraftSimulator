@@ -14,18 +14,33 @@ namespace madden.Data
         {
             _context = context;
             this.PlayersService = playerService;
+
+
+
             this.generatePlayers();
+
+           
+
         }
 
         private void generatePlayers()
         {
-                var players = PlayersService.GetPlayers();
-                _context.Players.AddRange(players);
+            
+            var players = PlayersService.GetPlayers();
+
+            _context.Players.AddRange(players);
+            _context.SaveChanges();
+
+
         }
 
         public IEnumerable<Player> GetAllPlayers()
         {
-                return _context.Players.ToList();
+
+            var players = _context.Players.ToList();
+
+
+            return players;
         }
 
         public Player GetPlayerById(int id)

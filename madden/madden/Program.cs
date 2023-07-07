@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using madden.Hubs;
 using Microsoft.AspNetCore.Identity;
 using madden.Models;
+using madden.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using madden.Services;
@@ -11,6 +12,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Text.Json;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,21 +36,35 @@ builder.Services.AddRazorPages();
 
 // dotnet add package Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation --version 3.1.0
 // 
+/*
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<IdentityContext>()
     .AddDefaultTokenProviders();
-builder.Services.AddAuthorization();
+*/
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+        .AddEntityFrameworkStores<IdentityContext>()
+        .AddDefaultTokenProviders(); ;
 
+
+builder.Services.AddScoped<IPlayerRepo, PlayerRepo>();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 // 
+/*
 builder.Services.AddDbContext<IdentityContext>(opts =>
     opts.UseSqlServer(builder.Configuration[
         "ConnectionStrings:IdentityConnection"]));
-
+*/
 builder.Services.AddDbContext<PlayerDbContext>(opt => opt.UseInMemoryDatabase("InMem"));
+builder.Services.AddDbContext<IdentityContext>(opt => opt.UseInMemoryDatabase("InMem"));
 /* builder.Services.AddControllersWithViews().AddSessionStateTempDataProvider(); */
 builder.Services.AddControllersWithViews().AddSessionStateTempDataProvider();
 
-
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+        .AddCookie(options =>
+        {
+            options.Cookie.Name = "auth"; // Replace with your desired cookie name
+            options.LoginPath = "/api/User/login"; // Replace with your login page path
+        });
 
 
 var app = builder.Build();
@@ -73,6 +89,10 @@ app.UseRouting();
 
 app.MapRazorPages();
 
+app.UseAuthentication();
+app.UseAuthorization();
+
+
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllers();
@@ -86,7 +106,8 @@ app.UseEndpoints(endpoints =>
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
+
+
 
 app.MapControllers();
 app.UseStaticFiles();

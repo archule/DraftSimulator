@@ -1,6 +1,9 @@
 using madden.Services;
 using Microsoft.AspNetCore.Mvc;
 using madden.Models;
+using AutoMapper;
+using madden.Dtos;
+using madden.Data;
 
 namespace madden.Controllers
 {
@@ -9,11 +12,24 @@ namespace madden.Controllers
     public class PlayersController : Controller
     {
 
-        [HttpGet]
-        public IEnumerable<Player> Get()
+
+        private readonly IPlayerRepo _repository;
+        private readonly IMapper _mapper;
+
+        public PlayersController(IPlayerRepo repo, IMapper mapper)
         {
-            var players = PlayersService.GetPlayers();
-            return players;
+            _repository = repo;
+            _mapper = mapper;
+            
+        }
+
+        [HttpGet]
+        public ActionResult<IEnumerable<PlayerReadDto>> Get()
+        {
+            var players = _repository.GetAllPlayers();
+            Console.WriteLine("Action Result");
+
+            return Ok(_mapper.Map<IEnumerable<PlayerReadDto>>(players));
             //return View(players);
         }
 

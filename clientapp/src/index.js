@@ -8,12 +8,20 @@ import Draft from './Draft.js'
 import Clock from './Clock.js'
 import Header from './Header.js';
 import Ticker from './Ticker';
+import RegisterForm from './RegisterForm.js';
+import LoginForm from './LoginForm.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+const call = async () => { const y = await fetch('http://localhost:5000/api/User/me'); }
+
 root.render(
   <React.StrictMode>
         <div>
-
+            <RegisterForm />
+            <LoginForm />
+            <button onClick={call}></button>
+            
             <Header />
 
             <img src="http://localhost:5000/Images/3.jpg" alt="player" />
