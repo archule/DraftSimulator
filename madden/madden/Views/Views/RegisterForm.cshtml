@@ -1,0 +1,30 @@
+@model madden.Models.RegisterModel
+
+
+@{
+    ViewData["Title"] = "Register";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+    <h1>Registe Form</h1>
+    <form asp-controller="User" asp-action="Register" method="post">
+        <div asp-validation-summary="All"></div>
+        <div>
+            <label asp-for="Username">username:</label>
+            <input asp-for="Username" />
+        </div>
+        <div>
+            <label asp-for="Password">password:</label>
+            <input asp-for="Password" />
+        </div>
+
+        <button type="submit">Register Acconut</button>
+    </form>
+</body>
+</html>

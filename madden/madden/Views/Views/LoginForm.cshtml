@@ -1,0 +1,28 @@
+@model madden.Models.LoginModel
+@using Microsoft.AspNetCore.Mvc
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <h1>Login Form</h1>
+    <form asp-controller="User" asp-action="Login" method="post">
+        <div asp-validation-summary="All"></div>
+        <div>
+            <label asp-for="Username">username:</label>
+            <input asp-for="Username" />
+        </div>
+        <div>
+            <label asp-for="Password">password:</label>
+            <input asp-for="Password" />
+        </div>
+        <button type="submit">Submit Food item</button>
+    </form>
+</body>
+</html>

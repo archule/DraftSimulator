@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using madden.Models;
 namespace madden.Controllers;
+using Microsoft.AspNetCore.Identity;
 
 
 /*
@@ -20,20 +21,45 @@ namespace madden.Controllers;
 public class RoomsController : Controller/*Base*/
 {
 
+    private readonly UserManager<IdentityUser> _userManager;
+    private readonly SignInManager<IdentityUser> _signInManager;
+
+    public RoomsController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+        {
+            _userManager = userManager;
+            _signInManager = signInManager;
+        }
+
     [HttpGet]
     // IActionResult
-    public string Get()
+    public async Task<IActionResult> Get()
     {
         Console.WriteLine("HEY");
-        return "";
+            
+        if (await this.userIsLoggedIn())
+        {
+            return View("Room");
+        } else {
+            return RedirectToAction("RegisterForm", "Views");
+        }
         //Room room = new Room("Get Request");
         //return room;
+        
     }
+
+    private async Task<bool> userIsLoggedIn()
+    { 
+        var user = await _userManager.GetUserAsync(User);
+        Console.WriteLine(user?.UserName);
+        return user != null;
+    }
+
+
 
     [HttpPost]
     // IActionResult
     public string GetPost()
-    {
+    {      
         return "";
         //Room room = new Room("post request");
         //return room;

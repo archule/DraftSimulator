@@ -17,11 +17,22 @@ namespace madden.Services
         public IWebHostEnvironment WebHostEnvironment { get; }
 
         private string JsonFileName => Path.Combine(WebHostEnvironment.WebRootPath, "Data", "players.json");
-
+        private string JsonTeamFileName => Path.Combine(WebHostEnvironment.WebRootPath, "Data", "players.json");
+        
         public IEnumerable<Player> GetPlayers()
         {
             using var jsonFileReader = File.OpenText(JsonFileName);
             return JsonSerializer.Deserialize<Player[]>(jsonFileReader.ReadToEnd(),
+                new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                });
+        }
+
+        public IEnumerable<Team> GetTeams()
+        {
+            using var jsonFileReader = File.OpenText(JsonTeamFileName);
+            return JsonSerializer.Deserialize<Team[]>(jsonFileReader.ReadToEnd(),
                 new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true

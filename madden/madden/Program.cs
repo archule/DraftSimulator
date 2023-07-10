@@ -33,6 +33,8 @@ builder.Services.AddSignalR();
 
 builder.Services.AddTransient<JsonFilePlayersService>();
 builder.Services.AddRazorPages();
+builder.Services.AddMvc();
+
 
 // dotnet add package Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation --version 3.1.0
 // 
@@ -58,7 +60,11 @@ builder.Services.AddDbContext<PlayerDbContext>(opt => opt.UseInMemoryDatabase("I
 builder.Services.AddDbContext<IdentityContext>(opt => opt.UseInMemoryDatabase("InMem"));
 /* builder.Services.AddControllersWithViews().AddSessionStateTempDataProvider(); */
 builder.Services.AddControllersWithViews().AddSessionStateTempDataProvider();
-
+builder.Services.AddControllers()
+    .ConfigureApiBehaviorOptions(options =>
+    {
+        options.SuppressModelStateInvalidFilter = true;
+    });
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
         .AddCookie(options =>
         {
@@ -91,6 +97,8 @@ app.MapRazorPages();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+
 
 
 app.UseEndpoints(endpoints =>

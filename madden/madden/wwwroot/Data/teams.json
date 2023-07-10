@@ -1,0 +1,423 @@
+{
+  "teams": [
+    {
+      "team": "Carolina Panthers",
+      "picks": [
+        1,
+        39,
+        93,
+        114,
+        132,
+        144
+      ]
+    },
+    {
+      "team": "Houston Texans",
+      "picks": [
+        2,
+        12,
+        33,
+        65,
+        73,
+        104,
+        188,
+        203,
+        230,
+        259
+      ]
+    },
+    {
+      "team": "Arizona Cardinals",
+      "picks": [
+        3,
+        34,
+        94,
+        96,
+        105,
+        168,
+        180,
+        213
+      ]
+    },
+    {
+      "team": "Indianapolis Colts",
+      "picks": [
+        4,
+        35,
+        79,
+        106,
+        137,
+        169,
+        176,
+        177,
+        221,
+        236
+      ]
+    },
+    {
+      "team": "Seattle Seahawks",
+      "picks": [
+        5,
+        20,
+        37,
+        52,
+        83,
+        123,
+        153,
+        198,
+        237
+      ]
+    },
+    {
+      "team": "Detroit Lions",
+      "picks": [
+        6,
+        18,
+        48,
+        55,
+        81,
+        119,
+        151,
+        183,
+        194
+      ]
+    },
+    {
+      "team": "Las Vegas Raiders",
+      "picks": [
+        7,
+        38,
+        70,
+        100,
+        109,
+        140,
+        143,
+        171,
+        174,
+        214,
+        220,
+        231
+      ]
+    },
+    {
+      "team": "Atlanta Falcons",
+      "picks": [
+        8,
+        44,
+        75,
+        110,
+        113,
+        224,
+        225
+      ]
+    },
+    {
+      "team": "Chicago Bears",
+      "picks": [
+        9,
+        53,
+        61,
+        64,
+        103,
+        133,
+        135,
+        147,
+        166,
+        218,
+        258
+      ]
+    },
+    {
+      "team": "Philadelphia Eagles",
+      "picks": [
+        10,
+        30,
+        62,
+        66,
+        219,
+        248
+      ]
+    },
+    {
+      "team": "Tennessee Titans",
+      "picks": [
+        11,
+        41,
+        72,
+        146,
+        186,
+        228
+      ]
+    },
+    {
+      "team": "Green Bay Packers",
+      "picks": [
+        13,
+        42,
+        45,
+        78,
+        116,
+        148,
+        207,
+        232,
+        235,
+        242,
+        256
+      ]
+    },
+    {
+      "team": "New England Patriots",
+      "picks": [
+        14,
+        46,
+        76,
+        107,
+        117,
+        184,
+        187,
+        192,
+        210,
+        245
+      ]
+    },
+    {
+      "team": "New York Jets",
+      "picks": [
+        15,
+        43,
+        112,
+        142,
+        173
+      ]
+    },
+    {
+      "team": "Washington Commanders",
+      "picks": [
+        16,
+        47,
+        97,
+        118,
+        149,
+        193,
+        215,
+        233
+      ]
+    },
+    {
+      "team": "Pittsburgh Steelers",
+      "picks": [
+        17,
+        32,
+        49,
+        80,
+        120,
+        150,
+        241,
+        251
+      ]
+    },
+    {
+      "team": "Tampa Bay Buccaneers",
+      "picks": [
+        19,
+        50,
+        82,
+        152,
+        175,
+        179,
+        181,
+        196,
+        252
+      ]
+    },
+    {
+      "team": "Los Angeles Chargers",
+      "picks": [
+        21,
+        54,
+        85,
+        125,
+        155,
+        200,
+        239
+      ]
+    },
+    {
+      "team": "Baltimore Ravens",
+      "picks": [
+        22,
+        86,
+        124,
+        156,
+        199,
+        240
+      ]
+    },
+    {
+      "team": "Minnesota Vikings",
+      "picks": [
+        23,
+        87,
+        157,
+        201,
+        211
+      ]
+    },
+    {
+      "team": "Jacksonville Jaguars",
+      "picks": [
+        24,
+        56,
+        88,
+        121,
+        127,
+        158,
+        185,
+        202,
+        208,
+        226
+      ]
+    },
+    {
+      "team": "New York Giants",
+      "picks": [
+        25,
+        57,
+        89,
+        128,
+        159,
+        209,
+        243,
+        254
+      ]
+    },
+    {
+      "team": "Dallas Cowboys",
+      "picks": [
+        26,
+        58,
+        90,
+        129,
+        160,
+        204,
+        212,
+        244
+      ]
+    },
+    {
+      "team": "Buffalo Bills",
+      "picks": [
+        27,
+        59,
+        91,
+        130,
+        136,
+        161,
+        167,
+        205
+      ]
+    },
+    {
+      "team": "Cincinnati Bengals",
+      "picks": [
+        28,
+        60,
+        92,
+        131,
+        162,
+        206,
+        246
+      ]
+    },
+    {
+      "team": "New Orleans Saints",
+      "picks": [
+        29,
+        40,
+        71,
+        115,
+        145,
+        164,
+        172,
+        227,
+        257
+      ]
+    },
+    {
+      "team": "Kansas City Chiefs",
+      "picks": [
+        31,
+        63,
+        95,
+        122,
+        134,
+        165,
+        178,
+        217,
+        249,
+        250
+      ]
+    },
+    {
+      "team": "Los Angeles Rams",
+      "picks": [
+        36,
+        69,
+        77,
+        170,
+        182,
+        189,
+        191,
+        223,
+        234
+      ]
+    },
+    {
+      "team": "Miami Dolphins",
+      "picks": [
+        51,
+        84,
+        197,
+        238
+      ]
+    },
+    {
+      "team": "Denver Broncos",
+      "picks": [
+        67,
+        68,
+        108,
+        138,
+        195
+      ]
+    },
+    {
+      "team": "Cleveland Browns",
+      "picks": [
+        74,
+        98,
+        111,
+        126,
+        139,
+        141,
+        190,
+        229
+      ]
+    },
+    {
+      "team": "San Francisco 49ers",
+      "picks": [
+        99,
+        101,
+        102,
+        154,
+        163,
+        216,
+        222,
+        247,
+        253,
+        255
+      ]
+    }
+  ]
+}

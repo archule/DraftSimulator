@@ -15,11 +15,7 @@ namespace madden.Data
             _context = context;
             this.PlayersService = playerService;
 
-
-
             this.generatePlayers();
-
-           
 
         }
 

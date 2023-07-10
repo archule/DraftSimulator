@@ -9,5 +9,8 @@ namespace madden.Models
         }
 
         public DbSet<Player> Players { get; set; }
+        public DbSet<Team> Teams { get; set; }
+
+        public DbSet<Room> Rooms { get; set; }
     }
 }

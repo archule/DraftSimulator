@@ -1,0 +1,39 @@
+@model madden.Dtos.RoomCreateDto
+
+
+@{
+    ViewData["Title"] = "Register";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+  
+    <h1>Register Form</h1>
+    <form asp-controller="User" asp-action="Register" method="post">
+        <div asp-validation-summary="All"></div>
+        <div>
+            <label asp-for="Name">Name:</label>
+            <input asp-for="Name" />
+        </div>
+        <div>
+            <label asp-for="Code">Code:</label>
+            <input asp-for="Code" />
+        </div>
+        <div>
+            <label asp-for="team">team:</label>
+            <input asp-for="team" />
+        </div>
+        <div>
+            <label asp-for="TimerDuration">team:</label>
+            <input asp-for="TimerDuration" />
+        </div>
+
+        <button type="submit">Add Draft Room</button>
+    </form>
+</body>
+</html>
