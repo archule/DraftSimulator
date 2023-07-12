@@ -13,6 +13,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Text.Json;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Hangfire;
+using Hangfire.SqlServer;
+using Hangfire.MemoryStorage;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,7 +38,7 @@ builder.Services.AddSignalR();
 builder.Services.AddTransient<JsonFilePlayersService>();
 builder.Services.AddRazorPages();
 builder.Services.AddMvc();
-
+builder.Services.AddTransient<IServiceManagement, ServiceManagement>(); 
 
 // dotnet add package Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation --version 3.1.0
 // 
@@ -47,7 +51,19 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>()
         .AddEntityFrameworkStores<IdentityContext>()
         .AddDefaultTokenProviders(); ;
 
+//builder.Services.AddHangfireServer();
 
+builder.Services.AddHangfire(configuration => configuration
+    .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
+    .UseSimpleAssemblyNameTypeSerializer()
+    .UseRecommendedSerializerSettings()
+    .UseMemoryStorage());
+
+builder.Services.AddDbContext<FireDbContext>(options =>
+    options.UseInMemoryDatabase("YourDatabaseName"));
+
+
+builder.Services.AddScoped<RoomRepo>();
 builder.Services.AddScoped<IPlayerRepo, PlayerRepo>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 // 
@@ -92,6 +108,9 @@ app.UseCors(builder => builder
 app.MapHub<ChatHub>("/chatHub");
 
 app.UseRouting();
+
+app.UseHangfireDashboard();
+app.MapHangfireDashboard();
 
 app.MapRazorPages();
 

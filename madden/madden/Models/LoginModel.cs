@@ -1,4 +1,3 @@
-
 namespace madden.Models;
 
 public class LoginModel

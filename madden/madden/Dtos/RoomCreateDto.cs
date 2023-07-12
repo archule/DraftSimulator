@@ -7,11 +7,15 @@ namespace madden.Dtos
 {
     public class RoomCreateDto
     {
+    
+    [Required]
     public string? Name { get; set; }
-    public string Code { get; set; }
-    public string? team { get; set; }
-    Dictionary<ApplicationUser, Team> Mapping { get; set; }
-    public int TimerDuration { get; set; }  
+    [Required]
+    public string? Code { get; set; }
+    [Required]
+    public string? Team { get; set; }
+    [Required]
+    public int? TimerDuration { get; set; }  
 
     }
 }

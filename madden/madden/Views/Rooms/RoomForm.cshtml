@@ -2,7 +2,7 @@
 
 
 @{
-    ViewData["Title"] = "Register";
+    ViewData["Title"] = "Room";
     Layout = null;
 }
 
@@ -13,8 +13,16 @@
 </head>
 <body>
   
+      public class RoomCreateDto
+    {
+
+
+ 
+
+    }
+
     <h1>Register Form</h1>
-    <form asp-controller="User" asp-action="Register" method="post">
+    <form asp-controller="Room" asp-action="Register" method="post">
         <div asp-validation-summary="All"></div>
         <div>
             <label asp-for="Name">Name:</label>
@@ -25,8 +33,8 @@
             <input asp-for="Code" />
         </div>
         <div>
-            <label asp-for="team">team:</label>
-            <input asp-for="team" />
+            <label asp-for="Team">team:</label>
+            <input asp-for="Team" />
         </div>
         <div>
             <label asp-for="TimerDuration">team:</label>

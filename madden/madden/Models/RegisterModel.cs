@@ -3,9 +3,12 @@ using System.ComponentModel.DataAnnotations;
 
 public class RegisterModel
 {
+    [Key]
     public string Username { get; set; }
     
-    //[RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*\W).{8,}$",
-    //ErrorMessage = "The password must contain at least 1 uppercase character, 1 lowercase character, 1 digit, and 1 non-alphanumeric character.")]
+    [Required]
+    [MinLength(8, ErrorMessage = "The password must be at least 8 characters long.")]
+    [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*\W).*$", ErrorMessage = "The password must have at least one uppercase letter, one lowercase letter, one digit, and one special character.")]
     public string Password { get; set; }
+
 }

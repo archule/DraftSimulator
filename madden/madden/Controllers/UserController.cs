@@ -3,11 +3,10 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using madden.Models;
 
-namespace YourNamespace.Controllers
+namespace madden.Controllers
 {
-    // removes view support [ApiController]
     [Route("api/[controller]")]
-    public class UserController : Controller//Base
+    public class UserController : Controller
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
@@ -23,37 +22,34 @@ namespace YourNamespace.Controllers
         public async Task<IActionResult> Register([FromForm] RegisterModel model)
         {
 
-
-        Console.WriteLine("info: " + model.Password + model.Username);
-        if (ModelState.IsValid)
-        {
-            Console.WriteLine("State was valid");
-        }
-        else
-        {
-            Console.WriteLine("State was NOT valid");
-            var errors = ModelState.Values.SelectMany(v => v.Errors.Select(e => e.ErrorMessage));
-        
-            foreach (var error in errors)
+            if (!ModelState.IsValid)
             {
-            // You can log, display, or handle each error message as needed
-            // For example, you can use a logger to log the errors:
-            Console.WriteLine(error);
+                return View("RegisterForm");
             }
-            return View("RegisterForm");
-        }
+
             var user = new IdentityUser { UserName = model.Username} ;
+            
             var result = await _userManager.CreateAsync(user, model.Password);
+            
             Console.WriteLine("User successfully");
             if (result.Succeeded)
             {
                 await _signInManager.SignInAsync(user, isPersistent: false);
                 Console.WriteLine("User created successfully");
                 return Ok();
+            } else {
+
+                var errors = result.Errors;
+                List<string> errorMessages = new List<string>();
+                foreach(var error in errors) {
+                    errorMessages.Add(error.Description);
+                    Console.WriteLine(error.Description);
+                    ModelState.AddModelError(error.Code, error.Description);
+                }
+                
+                return View("RegisterForm");
             }
-            Console.WriteLine("created successfully");
-            return View("RegisterForm");
-            return BadRequest(result.Errors);
+        
         }
 
         [HttpPost("login")]

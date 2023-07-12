@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using madden.Models;
+using madden.Dtos;
+using madden.Data;
 namespace madden.Controllers;
 using Microsoft.AspNetCore.Identity;
 
@@ -18,16 +20,17 @@ using Microsoft.AspNetCore.Identity;
 [Route("[controller]")]
 /* Controller --> has Views
    ControllerBase --> no views */
-public class RoomsController : Controller/*Base*/
+public class RoomController : Controller/*Base*/
 {
 
     private readonly UserManager<IdentityUser> _userManager;
     private readonly SignInManager<IdentityUser> _signInManager;
-
-    public RoomsController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+   private readonly RoomRepo _repository;
+    public RoomController(RoomRepo repository,UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _repository = repository;
         }
 
     [HttpGet]
@@ -40,12 +43,18 @@ public class RoomsController : Controller/*Base*/
         {
             return View("Room");
         } else {
-            return RedirectToAction("RegisterForm", "Views");
+            return RedirectToHomepage();
         }
         //Room room = new Room("Get Request");
         //return room;
         
     }
+
+    private  ActionResult RedirectToHomepage()
+    {
+        return RedirectToAction("Index", "Views");
+    }
+ 
 
     private async Task<bool> userIsLoggedIn()
     { 
@@ -54,43 +63,35 @@ public class RoomsController : Controller/*Base*/
         return user != null;
     }
 
+        private async Task<IdentityUser> getUser()
+    { 
+        var user = await _userManager.GetUserAsync(User);
+        Console.WriteLine(user?.UserName);
+        return user;
+    }
 
 
     [HttpPost]
-    // IActionResult
-    public string GetPost()
-    {      
-        return "";
-        //Room room = new Room("post request");
-        //return room;
-    }
- 
-    [HttpPut]
-    // IActionResult
-    public string GetPut()
-    {
-        return "";
-        //Room room = new Room("put request");
-        //return room;
+    public async Task<IActionResult> Create(RoomCreateDto RoomDto)
+    {   
+        IdentityUser User = await getUser();
+        _repository.CreateRoom(RoomDto, User);
+        return Ok();
     }
 
-    [HttpDelete]
-    // IActionResult
-    public string GetDelete()
-    {
-        return "";
-        //Room room = new Room("delete request");
-        //return room;
-    }
 
-    [HttpPatch]
-    // IActionResult
-    public string GetPatch()
-    {
-        return "";
-        //Room room = new Room("patch request");
-        //return room;
-    }
+
+   
+    
+
+        
+        [HttpGet]
+        [Route("Rooms")]
+        public IEnumerable<Room> GetAllRooms() {
+            var rooms = _repository.GetAllRooms();
+            return rooms;
+        }
+
 
 
 }
